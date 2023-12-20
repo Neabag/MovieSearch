@@ -6,7 +6,7 @@
   "scripts": {
     "start": "node src/index.js",
     "dev-debug": "node --inspect=0.0.0.0 src/index.js",
-    "dev": "nodemon -L src/index.js",
+    "dev": "nodemon src/index.js",
     "test": "",
     "migrate": "npx sequelize db:migrate",
     "pack": "npm-pack-zip"
