@@ -14,8 +14,6 @@ showMovies.getAllSuggestions = async ({ command, ack, respond, say }) => {
     method: "GET",
     url: `https://www.omdbapi.com/?apikey=${constants.apiKey}&s=${command.text}`,
   };
-  //   let suggestions = [];
-//   const blocks = [];
   try {
     const response = await axios.request(options);
     // console.log("API repsonse", response);
@@ -24,8 +22,9 @@ showMovies.getAllSuggestions = async ({ command, ack, respond, say }) => {
       response.data.Search &&
       response.data.Search.length > 0
     ) {
-    //   await say(moviesListView.moviesList.modal(response.data.Search))
+    //   await say({blocks: moviesListView.moviesList.modal(response.data.Search).blocks, text: "hello here is your search results:"})
       await respond(moviesListView.moviesList.modal(response.data.Search));
+
     } else {
       await respond(`ohh no!! your search doesn't exist in our database`);
     }
